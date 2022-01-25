@@ -19,23 +19,24 @@ public class ApplicationBanco {
 
         Conta contaCorrente = new ContaCorrente(cliente);
         Conta contaPouapanca = new ContaPoupanca(cliente);
-        Cartao cartaoCredito = new CartaoCredito(contaCorrente,"credito");
+        Cartao cartaoCredito = new CartaoCredito(contaCorrente, "credito");
 
-        cartaoCredito.usarCartao(cartaoCredito,200);
+        cartaoCredito.usarCartao(cartaoCredito, 200);
         contaCorrente.depositar(400);
 
         contaCorrente.imprimirExtrato();
         contaPouapanca.imprimirExtrato();
         cartaoCredito.imprimirFatura();
 
-        contaCorrente.transferir(100,contaPouapanca);
-        cartaoCredito.pagarFatura(contaCorrente,200);
+        contaCorrente.transferir(100, contaPouapanca);
+        cartaoCredito.pagarFatura(contaCorrente, 200);
 
         contaCorrente.imprimirExtrato();
         contaPouapanca.imprimirExtrato();
         cartaoCredito.imprimirFatura();
 
-
+        cartaoCredito.cancelar(cartaoCredito);
+        cartaoCredito.imprimirFatura();
 
     }
 

@@ -15,20 +15,20 @@ public abstract class Conta implements IConta {
         this.cliente = cliente;
     }
 
-    public void sacar (int valor){
-            saldo -= valor;
+    public void sacar(int valor) {
+        saldo -= valor;
     }
 
-    public void depositar (int valor){
-            saldo += valor;
+    public void depositar(int valor) {
+        saldo += valor;
     }
 
-    public void transferir (int valor, Conta contaDestino){
-            sacar(valor);
-            contaDestino.depositar(valor);
+    public void transferir(int valor, Conta contaDestino) {
+        sacar(valor);
+        contaDestino.depositar(valor);
     }
 
-    public void estrato (Conta conta){
+    public void estrato(Conta conta) {
 
     }
 

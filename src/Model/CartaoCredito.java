@@ -2,12 +2,12 @@ package Model;
 
 public class CartaoCredito extends Cartao {
 
-    public CartaoCredito (Conta conta, String tipo) {
-        super(conta,tipo);
+    public CartaoCredito(Conta conta, String tipo) {
+        super(conta, tipo);
     }
 
     @Override
-    public void imprimirFatura(){
+    public void imprimirFatura() {
         System.out.println("=== Estrato Fatura ===");
         super.estrato();
     }

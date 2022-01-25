@@ -2,21 +2,21 @@ package Model;
 
 import jdk.jshell.spi.SPIResolutionException;
 
-public abstract class Cartao implements ICartao{
+public abstract class Cartao implements ICartao {
     protected static int SEQUECIAL = 1;
     protected int numeroCartao;
     protected String tipoCartao;
     protected int contaTitular;
     protected double fatura;
     protected Conta conta;
-    protected boolean status;
+    protected boolean statusCartao;
 
-    public Cartao(Conta conta,String tipoCartao) {
+    public Cartao(Conta conta, String tipoCartao) {
         this.conta = conta;
         this.numeroCartao = SEQUECIAL++;
-        this.tipoCartao =  tipoCartao;
+        this.tipoCartao = tipoCartao;
         this.contaTitular = conta.numero;
-        this.status = true;
+        this.statusCartao = true;
     }
 
   /* public void Cartao(Conta conta, String tipoCartao){
@@ -24,36 +24,42 @@ public abstract class Cartao implements ICartao{
     }*/
 
 
-    public void cancelar (Cartao cartao){
-            if(status){
-                status = false;
-                System.out.println("Cartão cancelado!");
-            }else
-                System.out.println("O cartão já esta cancelado!");
+    public void cancelar(Cartao cartao) {
+        if (statusCartao) {
+            statusCartao = false;
+            System.out.println("\n" + "Cartão cancelado!" + "\n");
+        } else
+            System.out.println("O cartão já esta cancelado!");
     }
 
-    public void usarCartao (Cartao cartao, double valor){
+    public void usarCartao(Cartao cartao, double valor) {
         if (numeroCartao == getNumeroCartao()) {
             fatura += valor;
-        }else
+        } else
             System.out.println("Cartão inválido!");
     }
 
-    public void pagarFatura (Conta conta, double valor){
-            if (conta.numero == conta.getNumero()){
-                fatura -= valor;
-            }else
-                System.out.println("Numero do cartão incorreto!");
+    public void pagarFatura(Conta conta, double valor) {
+        if (conta.numero == conta.getNumero()) {
+            fatura -= valor;
+        } else
+            System.out.println("Numero do cartão incorreto!");
     }
 
-    public void estrato (){
+    public void estrato() {
         System.out.println("=============================== Fatura cartao ==========================");
-        System.out.println(String.format("Conta: %d",this.contaTitular));
-        System.out.println(String.format("Cliente: %s",conta.cliente.nome));
-        System.out.println(String.format("Fatura atual: %.2f",this.fatura));
+        String status = null;
+        if (statusCartao) {
+            status = "Ativo";
+        } else
+            status = "Cancelado";
+        System.out.println(String.format("Status cartao: %s", status));
+        System.out.println(String.format("Conta: %d", this.contaTitular));
+        System.out.println(String.format("Cliente: %s", conta.cliente.nome));
+        System.out.println(String.format("Fatura atual: %.2f", this.fatura));
     }
 
-    public void imprimirFatura(){
+    public void imprimirFatura() {
 
     }
 
@@ -98,10 +104,10 @@ public abstract class Cartao implements ICartao{
     }
 
     public boolean isStatus() {
-        return status;
+        return statusCartao;
     }
 
     public void setStatus(boolean status) {
-        this.status = status;
+        this.statusCartao = status;
     }
 }

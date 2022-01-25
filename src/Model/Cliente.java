@@ -1,11 +1,11 @@
 package Model;
 
-public class Cliente  {
+public class Cliente {
     protected String nome;
     protected String cpf;
     protected Endereco endereco;
 
-    public void criar (String nome, String cpf, Endereco endereco){
+    public void criar(String nome, String cpf, Endereco endereco) {
 
 
     }
