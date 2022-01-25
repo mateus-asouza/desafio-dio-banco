@@ -10,5 +10,5 @@
 
 - :large_blue_diamond: Banco digital que realiza operações de:
     - :small_blue_diamond: Criação de conta poupança ou corrente.
-    - :small_blue_diamond: Deposito, imprimir extrato, saque e tranferencia;
-    - :small_blue_diamond: Solicitar cartão de credito, pagar fatura, imprimir a fatura atual e cancelar cartões.
+    - :small_blue_diamond: Deposito, imprimir extrato, saque e transferência;
+    - :small_blue_diamond: Solicitar cartão de crédito, pagar fatura, imprimir a fatura atual e cancelar cartões.
